@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use("/", userRoutes);
 
-app.get("/", (req, res) => res.send("Hello From Express"));
+app.get("/", (req, res) => res.send("Server is running..."));
 app.all("*", (req, res) => res.send("That route doesn`t exist"));
 
 app.listen(port, () => {
