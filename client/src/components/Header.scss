@@ -11,12 +11,14 @@
     font-size: 18px;
     line-height: 15px;
     border-radius: 4px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &.logo {
       font-size: 25px;
       font-weight: bold;
       color: #e8569c;
-      margin-left: 600px;
+      margin-left: 440px;
+      transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     &:hover {
@@ -30,18 +32,25 @@
   }
 }
 
-.header-right {
+.language-btns {
+  float: left;
+  margin-top: 18px;
+  margin-left: 60px;
+  text-align: center;
+}
+
+.header__nav {
   float: right;
   margin-right: 60px;
 }
 
-@media screen and (max-width: 500px) {
-  .header p {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
-}
+// @media screen and (max-width: 500px) {
+//   .header p {
+//     float: none;
+//     display: block;
+//     text-align: left;
+//   }
+//   .header-right {
+//     float: none;
+//   }
+// }

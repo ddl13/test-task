@@ -22,14 +22,13 @@ const HomePage = () => {
   const onDeleteEmployee = async (id) => {
     if (window.confirm("Are you sure that you want to fire your employee")) {
       const response = await axios.delete(`http://localhost:5000/user/${id}`);
+
       if (response.status === 200) {
         toast.success(response.data);
         getUsers();
       }
     }
   };
-
-  console.log("data:", data);
 
   return (
     <div className="table-wrapper">
@@ -38,7 +37,7 @@ const HomePage = () => {
           <tr>
             <th style={{ textAlign: "center" }}>№.</th>
             <th style={{ textAlign: "center" }}>Name</th>
-            <th style={{ textAlign: "center" }}>Age</th>
+            <th style={{ textAlign: "center" }}>Salary</th>
             <th style={{ textAlign: "center" }}>Position</th>
             <th style={{ textAlign: "center" }}>Action</th>
           </tr>
@@ -50,7 +49,7 @@ const HomePage = () => {
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>{item.name}</td>
-                  <td>{item.age}</td>
+                  <td>{item.salary}</td>
                   <td>{item.position}</td>
                   <td>
                     <Link to={`/update/${item.id}`}>

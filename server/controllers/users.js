@@ -27,7 +27,7 @@ export const updateUser = (req, res) => {
   const user = users.find((user) => user.id === req.params.id);
 
   user.name = req.body.name;
-  user.age = req.body.age;
+  user.salary = req.body.salary;
   user.position = req.body.position;
 
   res.send("Employee updated successfully");

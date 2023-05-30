@@ -6,14 +6,14 @@ import { toast } from "react-toastify";
 
 const initialState = {
   name: "",
-  age: "",
+  salary: "",
   position: "",
 };
 
 const EditSection = () => {
   const [state, setState] = useState(initialState);
 
-  const { name, age, position } = state;
+  const { name, salary, position } = state;
 
   const navigate = useNavigate();
 
@@ -51,7 +51,7 @@ const EditSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim() || !age.trim() || !position.trim()) {
+    if (!name.trim() || !salary.trim() || !position.trim()) {
       return toast.error("Please don`t left fields empty");
     }
 
@@ -81,14 +81,14 @@ const EditSection = () => {
           onChange={handleInputChange}
           value={name}
         />
-        <label htmlFor="age">Age</label>
+        <label htmlFor="salary">Salary</label>
         <input
           type="number"
-          id="age"
-          name="age"
-          placeholder="Enter age of employee"
+          id="salary"
+          name="salary"
+          placeholder="Enter salary of employee"
           onChange={handleInputChange}
-          value={age}
+          value={salary}
         />
         <label htmlFor="position">Position</label>
         <input

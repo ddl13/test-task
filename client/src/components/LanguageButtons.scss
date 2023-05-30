@@ -1,0 +1,27 @@
+.btns {
+  display: flex;
+  gap: 2px;
+
+  & button {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 15px;
+    border-radius: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #136ad3;
+    color: #fff;
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      background-color: #9cdd51;
+    }
+
+    &:active {
+      background-color: #9cdd51;
+    }
+  }
+}
