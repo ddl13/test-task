@@ -1,24 +1,21 @@
 {
   "logo": "Employees manager system",
   "home": "Home",
-  "addingEmployee": "Add Employee",
+  "addingNote": "Add Note",
 
-  "employeeInfo": "Employee info",
-  "name": "Name",
-  "salary": "Salary",
-  "position": "Position",
+  "noteInfo": "Information",
+  "time": "Time",
+  "note": "Note",
   "goBack": "Go back",
 
   "action": "Action",
   "edit": "Edit",
-  "fire": "Fire",
+  "delete": "Delete",
   "more": "More",
   "update": "Update",
   "add": "Add",
 
-  "namePlacehoder": "Enter name of employee",
-  "salaryPlacehoder": "Enter salary of employee",
-  "positionPlacehoder": "Enter position of employee",
+  "notePlacehoder": "What are you planning?",
 
-  "confirmMessage": "Are you sure that you want to fire your employee?"
+  "confirmMessage": "Are you sure that you want to delete this note?"
 }

@@ -8,23 +8,20 @@ const View = ({ user, id }) => {
   return (
     <div className="card">
       <div className="card__header">
-        <p>{t("employeeInfo")}</p>
+        <p>{t("noteInfo")}</p>
       </div>
       <div className="card__wrapper">
         <strong>ID: </strong>
         <span>{id}</span>
         <br />
         <br />
-        <strong>{t("name")}: </strong>
-        <span>{user && user.name}</span>
+
+        <strong>{t("time")}: </strong>
+        <span>{user && user.time}</span>
         <br />
         <br />
-        <strong>{t("salary")}: </strong>
-        <span>{user && user.salary}</span>
-        <br />
-        <br />
-        <strong>{t("Должность")}: </strong>
-        <span>{user && user.position}</span>
+        <strong>{t("note")}: </strong>
+        <span>{user && user.note}</span>
         <br />
         <br />
         <Link to="/">

@@ -5,20 +5,20 @@ import "./ViewPage.scss";
 import View from "../components/View";
 
 const ViewPage = () => {
-  const [user, setUser] = useState(null);
+  const [user, setNote] = useState(null);
 
   const { id } = useParams();
 
   useEffect(() => {
     if (id) {
-      getSingleEmployee(id);
+      getSingleNote(id);
     }
   }, [id]);
 
-  const getSingleEmployee = async (id) => {
+  const getSingleNote = async (id) => {
     const response = await axios.get(`http://localhost:5000/user/${id}`);
     if (response.status === 200) {
-      setUser({ ...response.data[0] });
+      setNote({ ...response.data[0] });
     }
   };
   return (

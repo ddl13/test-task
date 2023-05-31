@@ -16,7 +16,7 @@ const Header = () => {
     if (location.pathname === "/") {
       setActiceTab("Home");
     } else if (location.pathname === "/add") {
-      setActiceTab("AddUser");
+      setActiceTab("AddNote");
     }
   }, [location]);
 
@@ -24,7 +24,7 @@ const Header = () => {
     <div className="header">
       <LanguageButtons className="language-btns" />
 
-      <h2 className="logo">{t("logo")}</h2>
+      <h2 className="logo">CRUD APP</h2>
 
       <div className="header__nav">
         <Link to="/">
@@ -37,10 +37,10 @@ const Header = () => {
         </Link>
         <Link to="/add">
           <p
-            className={`${activeTab === "AddUser" ? "active" : ""}`}
-            onClick={() => setActiceTab("AddUser")}
+            className={`${activeTab === "AddNote" ? "active" : ""}`}
+            onClick={() => setActiceTab("AddNote")}
           >
-            {t("addingEmployee")}
+            {t("addingNote")}
           </p>
         </Link>
       </div>

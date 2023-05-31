@@ -6,15 +6,14 @@ import { toast } from "react-toastify";
 import Form from "../components/Form";
 
 const initialState = {
-  name: "",
-  salary: "",
-  position: "",
+  time: "",
+  note: "",
 };
 
 const EditSection = () => {
   const [state, setState] = useState(initialState);
 
-  const { name, salary, position } = state;
+  const { time, note } = state;
 
   const navigate = useNavigate();
 
@@ -22,18 +21,18 @@ const EditSection = () => {
 
   useEffect(() => {
     if (id) {
-      getSingleEmployee(id);
+      getSingleNote(id);
     }
   }, [id]);
 
-  const getSingleEmployee = async (id) => {
+  const getSingleNote = async (id) => {
     const response = await axios.get(`http://localhost:5000/user/${id}`);
     if (response.status === 200) {
       setState({ ...response.data[0] });
     }
   };
 
-  const addEmployee = async (data) => {
+  const addNote = async (data) => {
     const response = await axios.post("http://localhost:5000/user", data);
 
     if (response.status === 200) {
@@ -41,7 +40,7 @@ const EditSection = () => {
     }
   };
 
-  const updateEmployee = async (data, id) => {
+  const updateNote = async (data, id) => {
     const response = await axios.put(`http://localhost:5000/user/${id}`, data);
 
     if (response.status === 200) {
@@ -52,14 +51,14 @@ const EditSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim() || !salary.trim() || !position.trim()) {
+    if (!time.trim() || !note.trim()) {
       return toast.error("Please don`t left fields empty");
     }
 
     if (!id) {
-      addEmployee(state);
+      addNote(state);
     } else {
-      updateEmployee(state, id);
+      updateNote(state, id);
     }
 
     navigate("/");

@@ -7,30 +7,20 @@ const Form = ({ state, submitForm, changeForm, id }) => {
   return (
     <>
       <form className="form" onSubmit={submitForm}>
-        <label htmlFor="name">{t("name")}</label>
+        <label htmlFor="time">{t("time")}</label>
+        <input
+          type="date"
+          id="time"
+          name="time"
+          onChange={changeForm}
+          value={state.time}
+        />
+        <label htmlFor="note">{t("note")}</label>
         <input
           type="text"
-          id="name"
-          name="name"
-          placeholder={t("namePlacehoder")}
-          onChange={changeForm}
-          value={state.name}
-        />
-        <label htmlFor="salary">{t("salary")}</label>
-        <input
-          type="number"
-          id="salary"
-          name="salary"
-          placeholder={t("salaryPlacehoder")}
-          onChange={changeForm}
-          value={state.salary}
-        />
-        <label htmlFor="position">{t("position")}</label>
-        <input
-          type="text"
-          id="position"
-          name="position"
-          placeholder={`${t("positionPlacehoder")} (Senior Developer)`}
+          id="note"
+          name="note"
+          placeholder={t("notePlacehoder")}
           onChange={changeForm}
           value={state.position}
         />

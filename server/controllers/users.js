@@ -2,33 +2,32 @@ import { v4 as uuid } from "uuid";
 
 let users = [];
 
-export const getUsers = (req, res) => {
+export const getNotes = (req, res) => {
   res.send(users);
 };
 
-export const createUser = (req, res) => {
+export const createNote = (req, res) => {
   const user = req.body;
 
   users.push({ ...user, id: uuid() });
-  res.send("Your employee added successfully");
+  res.send("Note added successfully");
 };
 
-export const getUser = (req, res) => {
+export const getNote = (req, res) => {
   const singleUser = users.filter((user) => user.id === req.params.id);
   res.send(singleUser);
 };
 
-export const deleteUser = (req, res) => {
+export const deleteNote = (req, res) => {
   users = users.filter((user) => user.id !== req.params.id);
-  res.send("Employee deleted successfully");
+  res.send("Note deleted successfully");
 };
 
-export const updateUser = (req, res) => {
+export const updateNote = (req, res) => {
   const user = users.find((user) => user.id === req.params.id);
 
-  user.name = req.body.name;
-  user.salary = req.body.salary;
-  user.position = req.body.position;
+  user.time = req.body.time;
+  user.note = req.body.note;
 
-  res.send("Employee updated successfully");
+  res.send("Note updated successfully");
 };

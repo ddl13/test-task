@@ -11,10 +11,10 @@ const HomePage = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    getUsers();
+    getNotes();
   }, []);
 
-  const getUsers = async () => {
+  const getNotes = async () => {
     const response = await axios.get("http://localhost:5000/users");
 
     if (response.status === 200) {
@@ -22,13 +22,13 @@ const HomePage = () => {
     }
   };
 
-  const onDeleteEmployee = async (id) => {
+  const onDeleteNote = async (id) => {
     if (window.confirm(t("confirmMessage"))) {
       const response = await axios.delete(`http://localhost:5000/user/${id}`);
 
       if (response.status === 200) {
         toast.success(response.data);
-        getUsers();
+        getNotes();
       }
     }
   };
@@ -44,9 +44,8 @@ const HomePage = () => {
         <thead>
           <tr>
             <th style={{ textAlign: "center" }}>№.</th>
-            <th style={{ textAlign: "center" }}>{t("name")}</th>
-            <th style={{ textAlign: "center" }}>{t("salary")}</th>
-            <th style={{ textAlign: "center" }}>{t("position")}</th>
+            <th style={{ textAlign: "center" }}>{t("time")}</th>
+            <th style={{ textAlign: "center" }}>{t("note")}</th>
             <th style={{ textAlign: "center" }}>{t("action")}</th>
           </tr>
         </thead>
@@ -56,18 +55,17 @@ const HomePage = () => {
               return (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <td>{item.name}</td>
-                  <td>{item.salary}</td>
-                  <td>{item.position}</td>
+                  <td>{item.time}</td>
+                  <td>{item.note}</td>
                   <td>
                     <Link to={`/update/${item.id}`}>
                       <button className="btn btn-edit">{t("edit")}</button>
                     </Link>
                     <button
                       className="btn btn-delete"
-                      onClick={() => onDeleteEmployee(item.id)}
+                      onClick={() => onDeleteNote(item.id)}
                     >
-                      {t("fire")}
+                      {t("delete")}
                     </button>
                     <Link to={`/view/${item.id}`}>
                       <button className="btn btn-view">{t("more")}</button>
