@@ -23,7 +23,7 @@ const HomePage = () => {
   };
 
   const onDeleteEmployee = async (id) => {
-    if (window.confirm("Are you sure that you want to fire your employee")) {
+    if (window.confirm(t("confirmMessage"))) {
       const response = await axios.delete(`http://localhost:5000/user/${id}`);
 
       if (response.status === 200) {
@@ -32,6 +32,11 @@ const HomePage = () => {
       }
     }
   };
+
+  let emptyData;
+  if (data.length === 0) {
+    emptyData = "Заметок нет";
+  }
 
   return (
     <div className="table-wrapper">
@@ -71,6 +76,7 @@ const HomePage = () => {
                 </tr>
               );
             })}
+          {emptyData && <p className="emptyData">{emptyData}</p>}
         </tbody>
       </table>
     </div>

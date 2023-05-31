@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./EditSection.scss";
 import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next";
+import Form from "../components/Form";
 
 const initialState = {
   name: "",
@@ -13,8 +13,6 @@ const initialState = {
 
 const EditSection = () => {
   const [state, setState] = useState(initialState);
-
-  const { t, i18n } = useTranslation();
 
   const { name, salary, position } = state;
 
@@ -74,36 +72,12 @@ const EditSection = () => {
 
   return (
     <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="name">{t("name")}</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder={t("namePlacehoder")}
-          onChange={handleInputChange}
-          value={name}
-        />
-        <label htmlFor="salary">{t("salary")}</label>
-        <input
-          type="number"
-          id="salary"
-          name="salary"
-          placeholder={t("salaryPlacehoder")}
-          onChange={handleInputChange}
-          value={salary}
-        />
-        <label htmlFor="position">{t("position")}</label>
-        <input
-          type="text"
-          id="position"
-          name="position"
-          placeholder={`${t("positionPlacehoder")} (Senior Developer)`}
-          onChange={handleInputChange}
-          value={position}
-        />
-        <input type="submit" value={id ? t("update") : t("add")}></input>
-      </form>
+      <Form
+        submitForm={handleSubmit}
+        changeForm={handleInputChange}
+        state={state}
+        id={id}
+      />
     </div>
   );
 };

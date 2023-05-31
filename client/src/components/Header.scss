@@ -5,15 +5,11 @@
   padding: 10px;
   background-color: #db76a4;
   height: 100px;
-  position: relative;
+  // position: relative;
 }
 
 .logo {
   color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   transition: all 0.2s ease-in-out;
 
   &:hover {

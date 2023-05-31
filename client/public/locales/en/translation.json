@@ -18,5 +18,7 @@
 
   "namePlacehoder": "Enter name of employee",
   "salaryPlacehoder": "Enter salary of employee",
-  "positionPlacehoder": "Enter position of employee"
+  "positionPlacehoder": "Enter position of employee",
+
+  "confirmMessage": "Are you sure that you want to fire your employee?"
 }
