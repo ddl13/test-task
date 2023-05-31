@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import "./HomePage.scss";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
   const [data, setData] = useState([]);
+
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     getUsers();
@@ -36,10 +39,10 @@ const HomePage = () => {
         <thead>
           <tr>
             <th style={{ textAlign: "center" }}>№.</th>
-            <th style={{ textAlign: "center" }}>Name</th>
-            <th style={{ textAlign: "center" }}>Salary</th>
-            <th style={{ textAlign: "center" }}>Position</th>
-            <th style={{ textAlign: "center" }}>Action</th>
+            <th style={{ textAlign: "center" }}>{t("name")}</th>
+            <th style={{ textAlign: "center" }}>{t("salary")}</th>
+            <th style={{ textAlign: "center" }}>{t("position")}</th>
+            <th style={{ textAlign: "center" }}>{t("action")}</th>
           </tr>
         </thead>
         <tbody>
@@ -53,16 +56,16 @@ const HomePage = () => {
                   <td>{item.position}</td>
                   <td>
                     <Link to={`/update/${item.id}`}>
-                      <button className="btn btn-edit">Edit</button>
+                      <button className="btn btn-edit">{t("edit")}</button>
                     </Link>
                     <button
                       className="btn btn-delete"
                       onClick={() => onDeleteEmployee(item.id)}
                     >
-                      Fire
+                      {t("fire")}
                     </button>
                     <Link to={`/view/${item.id}`}>
-                      <button className="btn btn-view">More</button>
+                      <button className="btn btn-view">{t("more")}</button>
                     </Link>
                   </td>
                 </tr>

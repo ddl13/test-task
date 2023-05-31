@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./EditSection.scss";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const initialState = {
   name: "",
@@ -12,6 +13,8 @@ const initialState = {
 
 const EditSection = () => {
   const [state, setState] = useState(initialState);
+
+  const { t, i18n } = useTranslation();
 
   const { name, salary, position } = state;
 
@@ -72,34 +75,34 @@ const EditSection = () => {
   return (
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">{t("name")}</label>
         <input
           type="text"
           id="name"
           name="name"
-          placeholder="Enter name of employee"
+          placeholder={t("namePlacehoder")}
           onChange={handleInputChange}
           value={name}
         />
-        <label htmlFor="salary">Salary</label>
+        <label htmlFor="salary">{t("salary")}</label>
         <input
           type="number"
           id="salary"
           name="salary"
-          placeholder="Enter salary of employee"
+          placeholder={t("salaryPlacehoder")}
           onChange={handleInputChange}
           value={salary}
         />
-        <label htmlFor="position">Position</label>
+        <label htmlFor="position">{t("position")}</label>
         <input
           type="text"
           id="position"
           name="position"
-          placeholder="Enter position of employee (Seniour React developer...)"
+          placeholder={`${t("positionPlacehoder")} (Senior Developer)`}
           onChange={handleInputChange}
           value={position}
         />
-        <input type="submit" value={id ? "Update" : "Add"}></input>
+        <input type="submit" value={id ? t("update") : t("add")}></input>
       </form>
     </div>
   );

@@ -1,0 +1,22 @@
+{
+  "logo": "Employees manager system",
+  "home": "Home",
+  "addingEmployee": "Add Employee",
+
+  "employeeInfo": "Employee info",
+  "name": "Name",
+  "salary": "Salary",
+  "position": "Position",
+  "goBack": "Go back",
+
+  "action": "Action",
+  "edit": "Edit",
+  "fire": "Fire",
+  "more": "More",
+  "update": "Update",
+  "add": "Add",
+
+  "namePlacehoder": "Enter name of employee",
+  "salaryPlacehoder": "Enter salary of employee",
+  "positionPlacehoder": "Enter position of employee"
+}

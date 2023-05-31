@@ -3,10 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
 
 import LanguageButtons from "./LanguageButtons";
+import { useTranslation } from "react-i18next";
+
 const Header = () => {
   const [activeTab, setActiceTab] = useState("Home");
 
   const location = useLocation();
+
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -20,7 +24,7 @@ const Header = () => {
     <div className="header">
       <LanguageButtons className="language-btns" />
 
-      <p className="logo">Employees manager system</p>
+      <h2 className="logo">{t("logo")}</h2>
 
       <div className="header__nav">
         <Link to="/">
@@ -28,7 +32,7 @@ const Header = () => {
             className={`${activeTab === "Home" ? "active" : ""}`}
             onClick={() => setActiceTab("Home")}
           >
-            Home
+            {t("home")}
           </p>
         </Link>
         <Link to="/add">
@@ -36,7 +40,7 @@ const Header = () => {
             className={`${activeTab === "AddUser" ? "active" : ""}`}
             onClick={() => setActiceTab("AddUser")}
           >
-            Add User
+            {t("addingEmployee")}
           </p>
         </Link>
       </div>
