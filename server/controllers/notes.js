@@ -1,33 +1,33 @@
 import { v4 as uuid } from "uuid";
 
-let users = [];
+let notes = [];
 
 export const getNotes = (req, res) => {
-  res.send(users);
+  res.send(notes);
 };
 
 export const createNote = (req, res) => {
-  const user = req.body;
+  const note = req.body;
 
-  users.push({ ...user, id: uuid() });
+  notes.push({ ...note, id: uuid() });
   res.send("Note added successfully");
 };
 
 export const getNote = (req, res) => {
-  const singleUser = users.filter((user) => user.id === req.params.id);
+  const singleUser = notes.filter((note) => note.id === req.params.id);
   res.send(singleUser);
 };
 
 export const deleteNote = (req, res) => {
-  users = users.filter((user) => user.id !== req.params.id);
+  notes = notes.filter((note) => note.id !== req.params.id);
   res.send("Note deleted successfully");
 };
 
 export const updateNote = (req, res) => {
-  const user = users.find((user) => user.id === req.params.id);
+  const note = note.find((note) => note.id === req.params.id);
 
-  user.time = req.body.time;
-  user.note = req.body.note;
+  note.time = req.body.time;
+  note.note = req.body.note;
 
   res.send("Note updated successfully");
 };

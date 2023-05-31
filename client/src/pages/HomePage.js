@@ -15,7 +15,7 @@ const HomePage = () => {
   }, []);
 
   const getNotes = async () => {
-    const response = await axios.get("http://localhost:5000/users");
+    const response = await axios.get("http://localhost:5000/notes");
 
     if (response.status === 200) {
       setData(response.data);
@@ -24,7 +24,7 @@ const HomePage = () => {
 
   const onDeleteNote = async (id) => {
     if (window.confirm(t("confirmMessage"))) {
-      const response = await axios.delete(`http://localhost:5000/user/${id}`);
+      const response = await axios.delete(`http://localhost:5000/note/${id}`);
 
       if (response.status === 200) {
         toast.success(response.data);

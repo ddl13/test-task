@@ -26,14 +26,14 @@ const EditSection = () => {
   }, [id]);
 
   const getSingleNote = async (id) => {
-    const response = await axios.get(`http://localhost:5000/user/${id}`);
+    const response = await axios.get(`http://localhost:5000/note/${id}`);
     if (response.status === 200) {
       setState({ ...response.data[0] });
     }
   };
 
   const addNote = async (data) => {
-    const response = await axios.post("http://localhost:5000/user", data);
+    const response = await axios.post("http://localhost:5000/note", data);
 
     if (response.status === 200) {
       toast.success(response.data);
@@ -41,7 +41,7 @@ const EditSection = () => {
   };
 
   const updateNote = async (data, id) => {
-    const response = await axios.put(`http://localhost:5000/user/${id}`, data);
+    const response = await axios.put(`http://localhost:5000/note/${id}`, data);
 
     if (response.status === 200) {
       toast.success(response.data);

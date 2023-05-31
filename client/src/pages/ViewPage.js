@@ -5,7 +5,7 @@ import "./ViewPage.scss";
 import View from "../components/View";
 
 const ViewPage = () => {
-  const [user, setNote] = useState(null);
+  const [note, setNote] = useState(null);
 
   const { id } = useParams();
 
@@ -16,7 +16,7 @@ const ViewPage = () => {
   }, [id]);
 
   const getSingleNote = async (id) => {
-    const response = await axios.get(`http://localhost:5000/user/${id}`);
+    const response = await axios.get(`http://localhost:5000/note/${id}`);
     if (response.status === 200) {
       setNote({ ...response.data[0] });
     }
@@ -24,7 +24,7 @@ const ViewPage = () => {
   return (
     <div className="container">
       <div className="card"></div>
-      <View user={user} id={id} />
+      <View note={note} id={id} />
     </div>
   );
 };

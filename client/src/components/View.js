@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./View.scss";
 
-const View = ({ user, id }) => {
+const View = ({ note, id }) => {
   const { t, i18n } = useTranslation();
   return (
     <div className="card">
@@ -17,11 +17,11 @@ const View = ({ user, id }) => {
         <br />
 
         <strong>{t("time")}: </strong>
-        <span>{user && user.time}</span>
+        <span>{note && note.time}</span>
         <br />
         <br />
         <strong>{t("note")}: </strong>
-        <span>{user && user.note}</span>
+        <span>{note && note.note}</span>
         <br />
         <br />
         <Link to="/">
