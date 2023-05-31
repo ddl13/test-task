@@ -14,8 +14,8 @@ export const createNote = (req, res) => {
 };
 
 export const getNote = (req, res) => {
-  const singleUser = notes.filter((note) => note.id === req.params.id);
-  res.send(singleUser);
+  const singleNote = notes.find((note) => note.id === req.params.id);
+  res.send([singleNote]);
 };
 
 export const deleteNote = (req, res) => {
@@ -24,7 +24,11 @@ export const deleteNote = (req, res) => {
 };
 
 export const updateNote = (req, res) => {
-  const note = note.find((note) => note.id === req.params.id);
+  const note = notes.find((note) => note.id === req.params.id);
+
+  if (!note) {
+    return res.status(404).send("Note not found");
+  }
 
   note.time = req.body.time;
   note.note = req.body.note;

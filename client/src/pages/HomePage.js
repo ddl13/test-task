@@ -4,6 +4,7 @@ import "./HomePage.scss";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import AppService from "../AppService";
 
 const HomePage = () => {
   const [data, setData] = useState([]);
@@ -15,20 +16,22 @@ const HomePage = () => {
   }, []);
 
   const getNotes = async () => {
-    const response = await axios.get("http://localhost:5000/notes");
-
-    if (response.status === 200) {
-      setData(response.data);
+    try {
+      const notes = await AppService.getNotes();
+      setData(notes);
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 
   const onDeleteNote = async (id) => {
     if (window.confirm(t("confirmMessage"))) {
-      const response = await axios.delete(`http://localhost:5000/note/${id}`);
-
-      if (response.status === 200) {
-        toast.success(response.data);
+      try {
+        const response = await AppService.deleteNote(id);
+        toast.success(response);
         getNotes();
+      } catch (error) {
+        toast.error(error.message);
       }
     }
   };
@@ -74,9 +77,9 @@ const HomePage = () => {
                 </tr>
               );
             })}
-          {emptyData && <p className="emptyData">{emptyData}</p>}
         </tbody>
       </table>
+      {emptyData && <p className="emptyData">{emptyData}</p>}
     </div>
   );
 };

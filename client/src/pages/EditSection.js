@@ -4,6 +4,7 @@ import axios from "axios";
 import "./EditSection.scss";
 import { toast } from "react-toastify";
 import Form from "../components/Form";
+import AppService from "../AppService";
 
 const initialState = {
   time: "",
@@ -25,26 +26,37 @@ const EditSection = () => {
     }
   }, [id]);
 
+  // const getSingleNote = async (id) => {
+  //   const response = await axios.get(`http://localhost:5000/note/${id}`);
+  //   if (response.status === 200) {
+  //     setState({ ...response.data[0] });
+  //   }
+  // };
+
   const getSingleNote = async (id) => {
-    const response = await axios.get(`http://localhost:5000/note/${id}`);
-    if (response.status === 200) {
-      setState({ ...response.data[0] });
+    try {
+      const singleNote = await AppService.getSingleNote(id);
+      setState({ ...singleNote });
+    } catch (error) {
+      throw new Error(error.response.data);
     }
   };
 
   const addNote = async (data) => {
-    const response = await axios.post("http://localhost:5000/note", data);
-
-    if (response.status === 200) {
-      toast.success(response.data);
+    try {
+      const response = await AppService.addNote(data);
+      toast.success(response);
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 
   const updateNote = async (data, id) => {
-    const response = await axios.put(`http://localhost:5000/note/${id}`, data);
-
-    if (response.status === 200) {
-      toast.success(response.data);
+    try {
+      const response = await AppService.updateNote(data, id);
+      toast.success(response);
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 

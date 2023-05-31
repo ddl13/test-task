@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./ViewPage.scss";
 import View from "../components/View";
+import AppService from "../AppService";
 
 const ViewPage = () => {
   const [note, setNote] = useState(null);
@@ -16,9 +17,11 @@ const ViewPage = () => {
   }, [id]);
 
   const getSingleNote = async (id) => {
-    const response = await axios.get(`http://localhost:5000/note/${id}`);
-    if (response.status === 200) {
-      setNote({ ...response.data[0] });
+    try {
+      const singleNote = await AppService.getSingleNote(id);
+      setNote({ ...singleNote });
+    } catch (error) {
+      throw new Error(error.response.data);
     }
   };
   return (
