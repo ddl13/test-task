@@ -22,12 +22,16 @@ describe("App E2E test", () => {
     cy.contains("Meet with friends").should("be.visible");
     cy.get(".btn-edit").click();
     cy.get('input[type="date"]#time').type("2023-06-11");
+    cy.get("input[type='text']#note").clear();
     cy.get("input[type='text']#note").type("Visit parents");
     cy.get("[type='submit']").click();
 
     // delete note
     cy.contains("Visit parents").should("be.visible");
+
     cy.get(".btn-delete").click();
     cy.on("window:confirm", () => true);
+
+    cy.contains("CRUD APP").should("be.visible");
   });
 });

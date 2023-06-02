@@ -52,7 +52,7 @@ const EditSection = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!time.trim() || !note.trim()) {
@@ -60,9 +60,9 @@ const EditSection = () => {
     }
 
     if (!id) {
-      addNote(state);
+      await addNote(state);
     } else {
-      updateNote(state, id);
+      await updateNote(state, id);
     }
 
     navigate("/");
