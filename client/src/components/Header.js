@@ -10,7 +10,7 @@ const Header = () => {
 
   const location = useLocation();
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -37,6 +37,7 @@ const Header = () => {
         </Link>
         <Link to="/add">
           <p
+            id="addNote"
             className={`${activeTab === "AddNote" ? "active" : ""}`}
             onClick={() => setActiceTab("AddNote")}
           >

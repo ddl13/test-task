@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import "./EditSection.scss";
 import { toast } from "react-toastify";
 import Form from "../components/Form";
@@ -25,13 +24,6 @@ const EditSection = () => {
       getSingleNote(id);
     }
   }, [id]);
-
-  // const getSingleNote = async (id) => {
-  //   const response = await axios.get(`http://localhost:5000/note/${id}`);
-  //   if (response.status === 200) {
-  //     setState({ ...response.data[0] });
-  //   }
-  // };
 
   const getSingleNote = async (id) => {
     try {

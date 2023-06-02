@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import "./Form.scss";
 
 const Form = ({ state, submitForm, changeForm, id }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <>
       <form className="form" onSubmit={submitForm}>
@@ -22,9 +22,13 @@ const Form = ({ state, submitForm, changeForm, id }) => {
           name="note"
           placeholder={t("notePlacehoder")}
           onChange={changeForm}
-          value={state.position}
+          value={state.note}
         />
-        <input type="submit" value={id ? t("update") : t("add")}></input>
+        <input
+          type="submit"
+          className="addNoteBtn"
+          value={id ? t("update") : t("add")}
+        ></input>
       </form>
     </>
   );

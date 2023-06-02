@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./View.scss";
 
 const View = ({ note, id }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="card">
       <div className="card__header">
@@ -25,7 +25,7 @@ const View = ({ note, id }) => {
         <br />
         <br />
         <Link to="/">
-          <button className="btn btn-edit">{t("goBack")}</button>
+          <button className="btn btn-edit goBackBtn">{t("goBack")}</button>
         </Link>
       </div>
     </div>

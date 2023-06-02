@@ -4,7 +4,7 @@
   "addingNote": "Add Note",
 
   "noteInfo": "Information",
-  "time": "Time",
+  "time": "Date",
   "note": "Note",
   "goBack": "Go back",
 
@@ -14,6 +14,7 @@
   "more": "More",
   "update": "Update",
   "add": "Add",
+  "emptyNote": "No Notes yet",
 
   "notePlacehoder": "What are you planning?",
 

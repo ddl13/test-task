@@ -6,6 +6,13 @@ export const getNotes = (req, res) => {
   res.send(notes);
 };
 
+// export const createNote = (req, res) => {
+//   const note = req.body;
+
+//   notes.push({ ...note, id: uuid() });
+//   res.send("Note added successfully");
+// };
+
 export const createNote = (req, res) => {
   const note = req.body;
 

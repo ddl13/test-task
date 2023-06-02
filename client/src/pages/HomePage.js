@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.scss";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import AppService from "../AppService";
@@ -9,7 +8,7 @@ import AppService from "../AppService";
 const HomePage = () => {
   const [data, setData] = useState([]);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     getNotes();
@@ -38,7 +37,7 @@ const HomePage = () => {
 
   let emptyData;
   if (data.length === 0) {
-    emptyData = "Заметок нет";
+    emptyData = t("emptyNote");
   }
 
   return (
